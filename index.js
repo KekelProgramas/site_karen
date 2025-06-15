@@ -8,7 +8,7 @@ function abrirAba(nomeArquivo) {
 }
 
 window.onload = function() {
-    abrirAba('Abas/casa.html');
+    abrirAba('casa.html');
 };
 
 function abrirCarta(carta) {
