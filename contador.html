@@ -1,38 +1,54 @@
 <div class="contador">
-    <h2>⏳ Contagem para datas especiais:</h2>
-    <p class="mesversario">Calculando mêsversário...</p>
-    <p class="aniversario">Calculando aniversário...</p>
+    <h2 class="contador-titulo">⏳ - Contagem para nosso aniversario</h2>
+    <div class="contador-container">
+        <div class="contador-dias-el">
+            <p class="txt" id="dias">0</p>
+            <span>DIAS</span>
+        </div>
+        <div class="contador-horas-el">
+            <p class="txt" id="horas">0</p>
+            <span>HORAS</span>
+        </div>
+        <div class="contador-min-el">
+            <p class="txt" id="minutos">0</p>
+            <span>MINUTOS</span>
+        </div>
+        <div class="contador-seg-el">
+            <p class="txt" id="segundos">0</p>
+            <span>SEGUNDOS</span>
+        </div>
+    </div>
+
+    <script>
+        const diasEl = document.getElementById("dias")
+        const horasEl = document.getElementById("horas")
+        const minutosEl = document.getElementById("minutos")
+        const segundosEl = document.getElementById("segundos")
+
+        const aniversario = '2026-03-29T00:00:00';
+
+        function contador() {
+            const aniversarioData = new Date(aniversario);
+            const dataAtual = new Date();
+
+            const totalSegundos = (aniversarioData - dataAtual) / 1000;
+
+            const dias = Math.floor(totalSegundos / 3600 / 24);
+            const horas = Math.floor(totalSegundos / 3600) % 24;
+            const minutos = Math.floor(totalSegundos / 60) % 60;
+            const segundos = Math.floor(totalSegundos) % 60;
+
+            diasEl.innerText = dias;
+            horasEl.innerText = formatarTempo(horas);
+            minutosEl.innerText = formatarTempo(minutos);
+            segundosEl.innerText = formatarTempo(segundos);
+        }
+
+        function formatarTempo(time) {
+            return time < 10 ? `0${time}` : time;
+        }
+
+        setInterval(contador, 1000);
+        contador()
+    </script>
 </div>
-
-<script>
-    function diasRestantes(dataFutura) {
-        const hoje = new Date();
-        const diff = dataFutura - hoje;
-        return Math.ceil(diff / (1000 * 60 * 60 * 24));
-    }
-
-    function calcularDatas() {
-        const hoje = new Date();
-        const diaBase = 27;
-        const mesAniversario = 2; // Março (0 = janeiro)
-
-      // Mêsversário
-        let proximoMesversario = new Date(hoje.getFullYear(), hoje.getMonth(), diaBase);
-        if (hoje.getDate() > diaBase) {
-            proximoMesversario.setMonth(proximoMesversario.getMonth() + 1);
-        }
-
-      // Aniversário
-        let aniversario = new Date(hoje.getFullYear(), mesAniversario, diaBase);
-        if (hoje > aniversario) {
-            aniversario.setFullYear(aniversario.getFullYear() + 1);
-        }
-
-      // Mostrar resultados
-        document.querySelector(".mesversario").textContent = `<p>💘 Próximo mêsversário em: ${diasRestantes(proximoMesversario)} dias</p>`;
-
-        document.querySelector(".aniversario").textContent = `<p>🎉 Próximo aniversário de namoro em: ${diasRestantes(aniversario)} dias</p>`;
-    }
-
-    document.addEventListener("DOMContentLoaded", calcularDatas());
-</script>
