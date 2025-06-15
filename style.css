@@ -1,0 +1,245 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffd6e8, #ffb6c1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4b2e39;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes surgir {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.titulo {
+  animation: surgir 0.8s ease-out;
+}
+
+
+.menu {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.menu button {
+  background-color: #f8bbd0;
+  border: none;
+  padding: 12px 25px;
+  margin: 0 10px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu button:hover {
+  background-color: #ec407a;
+  color: white;
+}
+
+#conteudo {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 10px 20px rgba(236, 64, 122, 0.3);
+}
+
+.carta-interativa {
+  background-color: #ffe4f1;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(203, 41, 100, 0.3);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  max-width: 600px;
+}
+
+.carta-interativa:hover {
+  transform: scale(1.02);
+}
+
+.carta-titulo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.carta-conteudo {
+  display: none;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #4b2e39;
+  margin-top: 10px;
+}
+
+.cartas {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carta {
+  background-color: #ffe4f1;
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(203, 41, 100, 0.3);
+  font-style: italic;
+  font-size: 1.1rem;
+  
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.timeline-container {
+  display: flex;
+  align-items: center; /* alinha verticalmente */
+  justify-content: center;
+  gap: 40px; /* espaço entre timeline e imagem */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white; /* fundo branco do quadro */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(203, 41, 100, 0.3);
+}
+
+.timeline-box {
+  flex: 1; /* timeline ocupa o máximo possível */
+  padding-left: 20px;
+  border-left: 4px solid #ec407a; /* linha vertical da timeline */
+}
+
+.titulo-timeline {
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: #4b2e39;
+  font-style: italic;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.timeline li::before {
+  content: none;
+}
+
+.timeline-image img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+.contador {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(236, 64, 122, 0.3);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mural {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.polaroid {
+  position: relative;
+  width: 300px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 15px pink;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.legenda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-weight: bold;
+  color: #444;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.polaroid:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+
+.voltar-pagina {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.voltar-pagina img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.voltar-pagina img:hover {
+  transform: scale(1.3);
+}
+

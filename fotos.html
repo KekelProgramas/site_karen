@@ -1,0 +1,29 @@
+<div class="mural">
+    <div class="polaroid">
+        <img src="../Image/KarenEu/img2.jpg" alt="Foto 2">
+        <p class="legenda">Eu abismado e você julgando</p>
+    </div>
+    <div class="polaroid">
+        <img src="../Image/KarenEu/img3.jpg" alt="Foto 3">
+        <p class="legenda">Eu casualmente deitado no seu ombro</p>
+    </div>
+    <div class="polaroid">
+        <img src="../Image/KarenEu/img4.jpg" alt="Foto 4">
+        <p class="legenda">Bicãum</p>
+    </div>
+    <div class="polaroid">
+        <img src="../Image/KarenEu/img5.jpg" alt="Foto 5">
+        <p class="legenda">Minha bêbada maluca</p>
+    </div>
+    <div class="polaroid">
+        <img src="../Image/KarenEu/img7.jpg" alt="Foto 7">
+        <p class="legenda">Amo seu olhar assim</p>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.polaroid').forEach(el => {
+        const rot = (Math.random() - 0.5) * 10;
+        el.style.transform = `rotate(${rot}deg)`;
+    });
+</script>

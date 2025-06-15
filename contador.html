@@ -1,0 +1,38 @@
+<div class="contador">
+    <h2>⏳ Contagem para datas especiais:</h2>
+    <p class="mesversario">Calculando mêsversário...</p>
+    <p class="aniversario">Calculando aniversário...</p>
+</div>
+
+<script>
+    function diasRestantes(dataFutura) {
+        const hoje = new Date();
+        const diff = dataFutura - hoje;
+        return Math.ceil(diff / (1000 * 60 * 60 * 24));
+    }
+
+    function calcularDatas() {
+        const hoje = new Date();
+        const diaBase = 27;
+        const mesAniversario = 2; // Março (0 = janeiro)
+
+      // Mêsversário
+        let proximoMesversario = new Date(hoje.getFullYear(), hoje.getMonth(), diaBase);
+        if (hoje.getDate() > diaBase) {
+            proximoMesversario.setMonth(proximoMesversario.getMonth() + 1);
+        }
+
+      // Aniversário
+        let aniversario = new Date(hoje.getFullYear(), mesAniversario, diaBase);
+        if (hoje > aniversario) {
+            aniversario.setFullYear(aniversario.getFullYear() + 1);
+        }
+
+      // Mostrar resultados
+        document.querySelector(".mesversario").textContent = `<p>💘 Próximo mêsversário em: ${diasRestantes(proximoMesversario)} dias</p>`;
+
+        document.querySelector(".aniversario").textContent = `<p>🎉 Próximo aniversário de namoro em: ${diasRestantes(aniversario)} dias</p>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", calcularDatas());
+</script>
